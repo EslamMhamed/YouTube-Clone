@@ -1,4 +1,4 @@
-import { Menu } from "lucide-react"
+import { Bell, Menu, Mic, Search, Upload, User } from "lucide-react"
 import logo from "../assets/Logo.png"
 import Button from "../components/Button"
 
@@ -14,8 +14,36 @@ function PageHeader() {
                 <img src={logo} alt="logo" className="h-6" />
             </a>
         </div>
-        <div></div>
-        <div></div>
+        <form className="hidden md:flex flex-grow gap-4 justify-center">
+         <div className="flex flex-grow max-w-[600px]">
+          <input type="search" placeholder="Search" className="rounded-l-full border border-secondary-border shadow-inner shadow-secondary py-1 px-4 text-lg w-full  outline-none focus:border-blue-500" />
+          <Button className="py-2 px-4 rounded-r-full  border border-secondary-border border-l-0 flex-shrink-0 " >
+            <Search  />
+          </Button>
+         </div>
+          
+          <Button type="button" className="flex-shrink-0" size="icon" >
+            <Mic />
+          </Button>
+          
+        </form>
+        <div className="flex flex-shrink-0 md:gap-2">
+          <Button size="icon" variant="ghost" className="md:hidden">
+            <Search />
+          </Button>
+          <Button size="icon" variant="ghost" className="md:hidden">
+            <Mic />
+          </Button>
+          <Button size="icon" variant="ghost">
+            <Upload />
+          </Button>
+          <Button size="icon" variant="ghost">
+            <Bell />
+          </Button>
+          <Button size="icon" variant="ghost">
+            <User />
+          </Button>
+        </div>
     </div>
   )
 }
