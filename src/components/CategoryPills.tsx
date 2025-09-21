@@ -21,7 +21,11 @@ function CategoryPills({categories, onSelect, selectedCategory}: CategoryPillPro
     useEffect(()=>{
         if(containerRef.current == null) return
         const observer = new ResizeObserver(entries => {
+            const container = entries[0]?.target
+            if(container == null) return 
 
+            setIsLeftVisible(translate > 0)
+            setIsRightVisible(translate + container.clientWidth < container.scrollWidth )
         })
 
         observer.observe(containerRef.current)
